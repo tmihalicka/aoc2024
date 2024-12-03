@@ -6,13 +6,13 @@ package com.mihalicka.aoc2024
  */
 object Day1 extends AoC2024(1):
 
-  private def inputLines: List[(Int, Int)] =
+  private def puzzleData: List[(Int, Int)] =
     puzzleInput
       .map(_.trim.split("\\s+").map(_.toInt))
       .map { case Array(left, right) => (left, right) }
 
   private def part1(): Unit =
-    val (left, right) = inputLines.unzip
+    val (left, right) = puzzleData.unzip
 
     val result = left
       .sorted
@@ -23,7 +23,7 @@ object Day1 extends AoC2024(1):
     println(s"Total distance: $result")
 
   private def part2(): Unit =
-    val (left, right) = inputLines.unzip
+    val (left, right) = puzzleData.unzip
 
     val rightFrequency = right.groupBy(identity).view.mapValues(_.size).toMap
 

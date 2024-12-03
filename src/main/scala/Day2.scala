@@ -6,7 +6,7 @@ package com.mihalicka.aoc2024
  */
 object Day2 extends AoC2024(2):
 
-  private def loadLines: List[List[Int]] =
+  private def puzzleData: List[List[Int]] =
     puzzleInput
       .map(_.split(" ").map(_.toInt).toList)
 
@@ -15,7 +15,7 @@ object Day2 extends AoC2024(2):
     diff.forall(d => d >= 1 && d <= 3) || diff.forall(d => d <= -1 && d >= -3)
 
   private def part1(): Unit =
-    val safeReports = loadLines.count(isSafe)
+    val safeReports = puzzleData.count(isSafe)
     println("Safe reports: " + safeReports)
 
   private def part2(): Unit =
@@ -25,7 +25,7 @@ object Day2 extends AoC2024(2):
         isSafe(modified)
       }
 
-    def safeDempeneredReports = loadLines.count { report =>
+    val safeDempeneredReports = puzzleData.count { report =>
       isSafe(report) || isReportSafeWithDampener(report)
     }
 
